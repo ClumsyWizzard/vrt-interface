@@ -1,0 +1,105 @@
+import { CryptoHookFactory } from "@_types/hooks";
+import { SaleTicket, Vehicle, VehicleMetadataRaw } from "@_types/nft";
+import { ethers } from "ethers";
+import { useCallback } from "react";
+import { toast } from "react-toastify";
+import useSWR from "swr";
+import axios from "axios";
+import { cleanVehicleMeta } from "components/utils/utils";
+
+type UseListedNftsResponse = {
+    buyNft: (token: number, value: number) => Promise<void>;
+};
+type ListedNftsHookFactory = CryptoHookFactory<SaleTicket[], UseListedNftsResponse>;
+
+export type UseListedNftsHook = ReturnType<ListedNftsHookFactory>;
+
+export type saleTicketsResponse = {
+    id: number;
+    token: {
+        id: number;
+        mintedBy: string;
+        metadata: string;
+    };
+    price: number;
+    seller: string;
+    timestamp: number;
+};
+
+export const hookFactory: ListedNftsHookFactory =
+    ({ contracts }) =>
+    () => {
+        const { data, ...swr } = useSWR(contracts ? "web3/useListedNfts" : null, async () => {
+            const saleTickets = [] as SaleTicket[];
+            const saleTicketsRawData = (
+                await axios({
+                    url: "http://127.0.0.1:8000/subgraphs/name/example",
+                    method: "post",
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                    data: {
+                        query: `{
+                          saleTickets(where: {status: PENDING}, orderBy: timestamp, orderDirection: desc) {
+                            id
+                            token {
+                              id
+                              mintedBy
+                              metadata
+                            }
+                            price
+                            seller
+                            timestamp
+                          }
+                        }`,
+                    },
+                })
+            ).data.data.saleTickets as saleTicketsResponse[];
+            for (let i = 0; i < saleTicketsRawData.length; i++) {
+                const ticketData = saleTicketsRawData[i];
+                const tokenDataFormatted = {
+                    ...ticketData.token,
+                    metadata: cleanVehicleMeta(ticketData.token.metadata),
+                } as Vehicle;
+                const date = new Date(ticketData.timestamp * 1000).toLocaleString("it-IT");
+                saleTickets.push({
+                    id: ticketData.id,
+                    price: ticketData.price,
+                    seller: ticketData.seller,
+                    token: tokenDataFormatted,
+                    date: date,
+                    metadata: {
+                        description: "Bella",
+                    },
+                });
+            }
+
+            return saleTickets;
+        });
+
+        const _contract = contracts?.vehicleMarketplaceContract;
+        const buyNft = useCallback(
+            async (tokenId: number, value: number) => {
+                try {
+                    const result = await _contract!.buyNft(tokenId, {
+                        value: value.toString(),
+                    });
+
+                    await toast.promise(result!.wait(), {
+                        pending: "Processing transaction",
+                        success: "Nft is yours! Go to Profile page",
+                        error: "Processing error",
+                    });
+                } catch (e: any) {
+                    console.error(e.message);
+                }
+            },
+            [_contract]
+        );
+
+        return {
+            ...swr,
+            buyNft,
+            data: data || [],
+        };
+    };
