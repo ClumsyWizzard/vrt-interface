@@ -1,0 +1,267 @@
+{
+  "contractName": "VehicleMetadata",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/VehicleMetadata.sol\":\"VehicleMetadata\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/VehicleMetadata.sol\":{\"keccak256\":\"0xa9b7f1f29736360ce628c721e7eeaf6eb166b296e468087c9e752245b5d2e722\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://52b2954f8b67c37e1940be7c18dee0094980a63fd4a4afcb39f5727613aeb31f\",\"dweb:/ipfs/QmcTwBKsEAgcEyLHMofL4Aam4QMPX74fCxtsjKJ53YBEof\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212206d896a9f45de334bb9affc36175e604f90af043492c5578ef7181dd760f3c53764736f6c634300080f0033",
+  "deployedBytecode": "0x6080604052600080fdfea26469706673582212206d896a9f45de334bb9affc36175e604f90af043492c5578ef7181dd760f3c53764736f6c634300080f0033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "66:293:14:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "66:293:14:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\ncontract VehicleMetadata {\n    struct VehicleToken {\n        uint256 tokenId;\n        address mintingAuthority;\n    }\n\n    struct VehicleCertification {\n        uint256 certificationId;\n        address certificationAuthority;\n        uint256 vehicleId;\n        string certificationURI;\n    }\n}\n",
+  "sourcePath": "D:\\UTENTE\\Andrea\\CODICE\\Ethereum\\tesi-2022-website\\contracts\\VehicleMetadata.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/VehicleMetadata.sol",
+    "exportedSymbols": {
+      "VehicleMetadata": [
+        2332
+      ]
+    },
+    "id": 2333,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2317,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:32:14"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "VehicleMetadata",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 2332,
+        "linearizedBaseContracts": [
+          2332
+        ],
+        "name": "VehicleMetadata",
+        "nameLocation": "75:15:14",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "VehicleMetadata.VehicleToken",
+            "id": 2322,
+            "members": [
+              {
+                "constant": false,
+                "id": 2319,
+                "mutability": "mutable",
+                "name": "tokenId",
+                "nameLocation": "135:7:14",
+                "nodeType": "VariableDeclaration",
+                "scope": 2322,
+                "src": "127:15:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2318,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "127:7:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2321,
+                "mutability": "mutable",
+                "name": "mintingAuthority",
+                "nameLocation": "160:16:14",
+                "nodeType": "VariableDeclaration",
+                "scope": 2322,
+                "src": "152:24:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 2320,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "152:7:14",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "VehicleToken",
+            "nameLocation": "104:12:14",
+            "nodeType": "StructDefinition",
+            "scope": 2332,
+            "src": "97:86:14",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "VehicleMetadata.VehicleCertification",
+            "id": 2331,
+            "members": [
+              {
+                "constant": false,
+                "id": 2324,
+                "mutability": "mutable",
+                "name": "certificationId",
+                "nameLocation": "235:15:14",
+                "nodeType": "VariableDeclaration",
+                "scope": 2331,
+                "src": "227:23:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2323,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "227:7:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2326,
+                "mutability": "mutable",
+                "name": "certificationAuthority",
+                "nameLocation": "268:22:14",
+                "nodeType": "VariableDeclaration",
+                "scope": 2331,
+                "src": "260:30:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 2325,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "260:7:14",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2328,
+                "mutability": "mutable",
+                "name": "vehicleId",
+                "nameLocation": "308:9:14",
+                "nodeType": "VariableDeclaration",
+                "scope": 2331,
+                "src": "300:17:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2327,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "300:7:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2330,
+                "mutability": "mutable",
+                "name": "certificationURI",
+                "nameLocation": "334:16:14",
+                "nodeType": "VariableDeclaration",
+                "scope": 2331,
+                "src": "327:23:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 2329,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "327:6:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "VehicleCertification",
+            "nameLocation": "196:20:14",
+            "nodeType": "StructDefinition",
+            "scope": 2332,
+            "src": "189:168:14",
+            "visibility": "public"
+          }
+        ],
+        "scope": 2333,
+        "src": "66:293:14",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:328:14"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.15+commit.e14f2714.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.8",
+  "updatedAt": "2022-07-28T08:19:05.370Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    image: web-app-token-auto-dev
+    build:
+      context: ..
+      dockerfile: Dockerfile.development
+    ports:
+      - 3000:3000
+    volumes:
+      - ../components:/app/components
+      - ../pages:/app/pages
+      - ../public:/app/public
+      - ../styles:/app/styles
+      - ../types:/app/types
