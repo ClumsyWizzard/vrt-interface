@@ -129,8 +129,8 @@ const NftCreate: NextPage = () => {
             });
 
             const res = await toast.promise(promise, {
-                pending: "Caricamento del file...",
-                success: "Caricamento completato!",
+                pending: "Caricamento del file in corso...",
+                success: "Caricamento completato",
                 error: "Errore nel caricamento",
             });
 
@@ -152,7 +152,7 @@ const NftCreate: NextPage = () => {
             });
 
             const res = await toast.promise(promise, {
-                pending: "Caricamento dei dati...",
+                pending: "Caricamento dei dati in corso...",
                 success: "Dati caricati",
                 error: "Errore nel caricamento dei dati",
             });
@@ -185,7 +185,7 @@ const NftCreate: NextPage = () => {
             });
 
             const res = await toast.promise(promise, {
-                pending: "Caricamento dei dati...",
+                pending: "Caricamento dei dati in corso...",
                 success: "Dati caricati",
                 error: "Errore nel caricamento dei dati",
             });

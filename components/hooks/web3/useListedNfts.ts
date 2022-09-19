@@ -86,9 +86,9 @@ export const hookFactory: ListedNftsHookFactory =
                     });
 
                     await toast.promise(result!.wait(), {
-                        pending: "Processing transaction",
-                        success: "Nft is yours! Go to Profile page",
-                        error: "Processing error",
+                        pending: "Validazione della transazione in corso...",
+                        success: "Il veicolo è stato acquistato con successo",
+                        error: "Validazione della transazione fallita",
                     });
                 } catch (e: any) {
                     console.error(e.message);

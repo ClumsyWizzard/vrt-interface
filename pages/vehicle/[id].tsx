@@ -7,6 +7,7 @@ import { Certification, Transfer, VehicleMetaClean } from "@_types/nft";
 import { Timeline } from "flowbite-react";
 import React from "react";
 import { AddressToBrand } from "types/addresses";
+import { TxHashLink } from "@ui";
 
 type VehicleFullDataWithRawMeta = {
     metadata: string;
@@ -108,15 +109,7 @@ const Home: NextPage<PageProps> = ({ vehicle, events }) => {
                                         </Timeline.Title>
                                         <div className="mb-3">
                                             <h4 className="font-semibold text-black">Informazioni:</h4>
-                                            <p>{`TxHash: ${(
-                                                <Link
-                                                    href={`${process.env.NEXT_PUBLIC_TESTNET_EXPLORER_URL}/tx/${
-                                                        (item.data as TransferData).txHash
-                                                    }`}
-                                                >
-                                                    {(item.data as TransferData).txHash}
-                                                </Link>
-                                            )}`}</p>
+                                            <TxHashLink txHash={(item.data as CertificationData).txHash} />
                                             <p>{`Certificazione emessa da ${knowAddressName(
                                                 (item.data as CertificationData).authority
                                             )}`}</p>
@@ -129,7 +122,7 @@ const Home: NextPage<PageProps> = ({ vehicle, events }) => {
                                                     {(item.data as CertificationData).metadata["license_plate"]}
                                                 </React.Fragment>
                                             ) : (
-                                                <Link href={(item.data as CertificationData).metadata.uri} passHref>
+                                                <Link href={(item.data as CertificationData).metadata.uri}>
                                                     <a
                                                         target="_blank"
                                                         className="mt-1 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none disabled:cursor-not-allowed inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -147,15 +140,7 @@ const Home: NextPage<PageProps> = ({ vehicle, events }) => {
                                         </Timeline.Title>
                                         <div className="mb-3">
                                             <h4 className="font-semibold text-black">Informazioni:</h4>
-                                            <p>{`TxHash: ${(
-                                                <Link
-                                                    href={`${process.env.NEXT_PUBLIC_TESTNET_EXPLORER_URL}/tx/${
-                                                        (item.data as TransferData).txHash
-                                                    }`}
-                                                >
-                                                    {(item.data as TransferData).txHash}
-                                                </Link>
-                                            )}`}</p>
+                                            <TxHashLink txHash={(item.data as TransferData).txHash} />
                                         </div>
                                         <div className="mb-3">
                                             <h4 className="font-semibold text-black">Contenuto:</h4>
@@ -169,15 +154,7 @@ const Home: NextPage<PageProps> = ({ vehicle, events }) => {
                                         <Timeline.Title className="mb-2">Passaggio di proprietà</Timeline.Title>
                                         <div className="mb-3">
                                             <h4 className="font-semibold text-black">Informazioni:</h4>
-                                            <p>{`TxHash: ${(
-                                                <Link
-                                                    href={`${process.env.NEXT_PUBLIC_TESTNET_EXPLORER_URL}/tx/${
-                                                        (item.data as TransferData).txHash
-                                                    }`}
-                                                >
-                                                    {(item.data as TransferData).txHash}
-                                                </Link>
-                                            )}`}</p>
+                                            <TxHashLink txHash={(item.data as TransferData).txHash} />
                                         </div>
                                         <div className="mb-3">
                                             <h4 className="font-semibold text-black">Contenuto:</h4>

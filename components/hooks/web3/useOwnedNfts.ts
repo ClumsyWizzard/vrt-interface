@@ -61,9 +61,9 @@ export const hookFactory: OwnedNftsHookFactory =
                     const result = await _contract!.placeNftOnSale(tokenId, price.toString());
 
                     await toast.promise(result!.wait(), {
-                        pending: "Operazione in corso",
+                        pending: "Validazione della transazione in corso...",
                         success: "Il tuo veicolo è stato messo in vendita",
-                        error: "C'è stato un errore",
+                        error: "Validazione della transazione fallita",
                     });
                 } catch (e: any) {
                     console.error(e.message);
@@ -78,9 +78,9 @@ export const hookFactory: OwnedNftsHookFactory =
                     const result = await _contract!.cancelSale(tokenId);
 
                     await toast.promise(result!.wait(), {
-                        pending: "Operazione in corso",
+                        pending: "Validazione della transazione in corso...",
                         success: "Il tuo veicolo è stata rimosso dalla vendita",
-                        error: "C'è stato un errore",
+                        error: "Validazione della transazione fallita",
                     });
                 } catch (e: any) {
                     console.error(e.message);
