@@ -24,7 +24,7 @@ export default withSession(async (req: NextApiRequest & { session: Session }, re
             filename: fileName + "-" + uuidv4(),
         });
         try {
-            const fileRes = await axios.post("http://localhost:5001/api/v0/add", formData, {
+            const fileRes = await axios.post(`${process.env.NEXT_PUBLIC_IPFS_API_URL}/api/v0/add`, formData, {
                 maxBodyLength: Infinity,
                 headers: {
                     "Content-type": `multipart/form-data; boundary=${formData.getBoundary()}`,

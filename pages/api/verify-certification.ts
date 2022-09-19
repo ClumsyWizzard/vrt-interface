@@ -44,7 +44,7 @@ export default withSession(async (req: NextApiRequest & { session: Session }, re
                 );
             }
 
-            const jsonRes = await axios.post("http://localhost:5001/api/v0/add", formData, {
+            const jsonRes = await axios.post(`${process.env.NEXT_PUBLIC_IPFS_API_URL}/api/v0/add`, formData, {
                 headers: {
                     "Content-type": `multipart/form-data; boundary=${formData.getBoundary()}`,
                 },

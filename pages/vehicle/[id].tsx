@@ -110,7 +110,7 @@ const Home: NextPage<PageProps> = ({ vehicle, events }) => {
                                             <h4 className="font-semibold text-black">Informazioni:</h4>
                                             <p>{`TxHash: ${(
                                                 <Link
-                                                    href={`http://localhost:4000/tx/${
+                                                    href={`${process.env.NEXT_PUBLIC_TESTNET_EXPLORER_URL}/tx/${
                                                         (item.data as TransferData).txHash
                                                     }`}
                                                 >
@@ -149,7 +149,7 @@ const Home: NextPage<PageProps> = ({ vehicle, events }) => {
                                             <h4 className="font-semibold text-black">Informazioni:</h4>
                                             <p>{`TxHash: ${(
                                                 <Link
-                                                    href={`http://localhost:4000/tx/${
+                                                    href={`${process.env.NEXT_PUBLIC_TESTNET_EXPLORER_URL}/tx/${
                                                         (item.data as TransferData).txHash
                                                     }`}
                                                 >
@@ -171,7 +171,7 @@ const Home: NextPage<PageProps> = ({ vehicle, events }) => {
                                             <h4 className="font-semibold text-black">Informazioni:</h4>
                                             <p>{`TxHash: ${(
                                                 <Link
-                                                    href={`http://localhost:4000/tx/${
+                                                    href={`${process.env.NEXT_PUBLIC_TESTNET_EXPLORER_URL}/tx/${
                                                         (item.data as TransferData).txHash
                                                     }`}
                                                 >
@@ -227,7 +227,7 @@ const formatEventData = (eventDataRaw: any, isCert: boolean) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const vehicleFullDataRaw = (
         await axios({
-            url: "http://127.0.0.1:8000/subgraphs/name/example",
+            url: `${process.env.NEXT_PUBLIC_GRAPH_QUERY_BASE_URL}/subgraphs/name/${process.env.NEXT_PUBLIC_SUBGRAPH_NAME}`,
             method: "post",
             headers: {
                 "content-type": "application/json",

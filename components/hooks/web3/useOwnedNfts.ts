@@ -23,7 +23,7 @@ export const hookFactory: OwnedNftsHookFactory =
             const ownedNfts = [] as Vehicle[];
             const ownedNftsRawData = (
                 await axios({
-                    url: "http://127.0.0.1:8000/subgraphs/name/example",
+                    url: `${process.env.NEXT_PUBLIC_GRAPH_QUERY_BASE_URL}/subgraphs/name/${process.env.NEXT_PUBLIC_SUBGRAPH_NAME}`,
                     method: "post",
                     headers: {
                         "content-type": "application/json",

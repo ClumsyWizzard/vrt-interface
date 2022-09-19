@@ -19,7 +19,6 @@ const contractNetworks = contract["networks"] as NETWORKS;
 export const contractAddress = contractNetworks[targetNetwork]["address"];
 
 export function withSession(handler: any) {
-    console.log(process.env.SECRET_COOKIE_PASSWORD as string);
     return withIronSession(handler, {
         password: "z5c4kUE635h1Sgczml6aG7IdZisBf821",
         cookieName: "nft-auth-session",

@@ -135,7 +135,7 @@ const NftCreate: NextPage = () => {
             });
 
             const data = res.data as InfuraRes;
-            return `http://localhost:8080/ipfs/${data.Hash}`;
+            return `${process.env.NEXT_PUBLIC_IPFS_GATEWAY_URL}/ipfs/${data.Hash}`;
         } catch (e: any) {
             console.error(e.message);
         }
@@ -162,7 +162,7 @@ const NftCreate: NextPage = () => {
             const tx = await contracts?.vehicleRegistrationTokenContract.addCertification(
                 certificationMeta.vehicleId,
                 certificationMeta.certificationCode,
-                "http://localhost:8080/ipfs/" + data.Hash
+                `${process.env.NEXT_PUBLIC_IPFS_GATEWAY_URL}/ipfs/${data.Hash}`
             );
             await toast.promise(tx!.wait(), {
                 pending: "Creazione della certificazione digitale del veicolo in corso...",
@@ -193,7 +193,7 @@ const NftCreate: NextPage = () => {
             const data = res.data as InfuraRes;
 
             const tx = await contracts?.vehicleRegistrationTokenContract.mintToken(
-                `http://localhost:8080/ipfs/${data.Hash}`
+                `${process.env.NEXT_PUBLIC_IPFS_GATEWAY_URL}/ipfs/${data.Hash}`
             );
             await toast.promise(tx!.wait(), {
                 pending: "Creazione dell'identità digitale del veicolo in corso...",
