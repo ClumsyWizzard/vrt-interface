@@ -32,7 +32,7 @@ const Profile: NextPage = () => {
         <BaseLayout>
             <div className="h-full flex">
                 <div className="flex-1 flex flex-col overflow-hidden">
-                    <div className="flex-1 flex items-stretch overflow-hidden">
+                    <div className="flex-1 flex items-stretch lg:flex-row flex-col">
                         <main className="flex-1 overflow-y-auto">
                             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                                 <div>
@@ -81,7 +81,7 @@ const Profile: NextPage = () => {
                                 </div>
                             </div>
                         </main>
-                        <aside className="hidden w-96 bg-white p-8 border-l border-gray-200 overflow-y-auto lg:block">
+                        <aside className="lg:w-96 bg-white p-6 lg:p-8 border-t lg:border-t-0 lg:border-l lg:border-gray-200 overflow-y-auto">
                             {activeNft && (
                                 <div className="pb-16 space-y-6">
                                     <div>

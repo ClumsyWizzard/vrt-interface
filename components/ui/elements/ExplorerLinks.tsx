@@ -15,7 +15,7 @@ export const TxHashLink: FunctionComponent<TxHashLinkProps> = ({ txHash }) => {
         <div>
             {"TxHash: "}
             <Link href={`${process.env.NEXT_PUBLIC_TESTNET_EXPLORER_URL}/tx/${txHash}`}>
-                <a target="_blank" className="underline">
+                <a target="_blank" className="underline overflow-ellipsis block overflow-hidden whitespace-nowrap">
                     {txHash}
                 </a>
             </Link>
@@ -25,7 +25,7 @@ export const TxHashLink: FunctionComponent<TxHashLinkProps> = ({ txHash }) => {
 export const AddressHashLink: FunctionComponent<AddressHashLinkProps> = ({ address }) => {
     return (
         <Link href={`${process.env.NEXT_PUBLIC_TESTNET_EXPLORER_URL}/address/${address}`}>
-            <a target="_blank" className="underline">
+            <a target="_blank" className="underline overflow-ellipsis block overflow-hidden whitespace-nowrap">
                 {AddressToBrand[address] == undefined ? address : `${AddressToBrand[address]} (${address})`}
             </a>
         </Link>

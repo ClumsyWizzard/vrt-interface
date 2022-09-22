@@ -247,7 +247,7 @@ const NftCreate: NextPage = () => {
                     <div className="mt-5 md:mt-0 md:col-span-2">
                         <form className="shadow sm:rounded-md sm:overflow-hidden">
                             <div>
-                                <div id="select" className="px-4 bg-white space-y-2 sm:p-6">
+                                <div id="select" className="px-4 sm:px-6 bg-white space-y-2 p-6">
                                     <div className="block">
                                         <label htmlFor="name" className="block text-base font-medium text-gray-700">
                                             Vuoi creare un veicolo o una certificazione?
