@@ -7,7 +7,7 @@ import { Certification, Transfer, VehicleMetaClean } from "@_types/nft";
 import { Timeline } from "flowbite-react";
 import React, { useState, useEffect } from "react";
 import { AddressToBrand } from "types/addresses";
-import { TxHashLink } from "@ui";
+import { TxHashLink, AddressHashLink } from "@ui";
 
 type VehicleFullDataWithRawMeta = {
     metadata: string;
@@ -147,9 +147,10 @@ const Home: NextPage<PageProps> = ({ vehicle, events }) => {
                                         <div className="mb-3">
                                             <h4 className="text-lg font-semibold text-black">Informazioni:</h4>
                                             <TxHashLink txHash={(item.data as CertificationData).txHash} />
-                                            <p>{`Certificazione emessa da ${knowAddressName(
-                                                (item.data as CertificationData).authority
-                                            )}`}</p>
+                                            <p>
+                                                Certificazione emessa da{" "}
+                                                <AddressHashLink address={(item.data as CertificationData).authority} />
+                                            </p>
                                         </div>
                                         <div className="mb-3">
                                             <h4 className="text-lg font-semibold text-black">Contenuto:</h4>
@@ -162,7 +163,7 @@ const Home: NextPage<PageProps> = ({ vehicle, events }) => {
                                                 <Link href={(item.data as CertificationData).metadata.uri}>
                                                     <a
                                                         target="_blank"
-                                                        className="mt-1 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none disabled:cursor-not-allowed inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                                        className="mt-1 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none disabled:cursor-not-allowed inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700"
                                                     >
                                                         Visualizza la documentazione
                                                     </a>
@@ -181,9 +182,10 @@ const Home: NextPage<PageProps> = ({ vehicle, events }) => {
                                         </div>
                                         <div className="mb-3">
                                             <h4 className="text-lg font-semibold text-black">Contenuto:</h4>
-                                            {`Il veicolo è stato prodotto da ${knowAddressName(
-                                                (item.data as TransferData).to
-                                            )}`}
+                                            <p>
+                                                Il veicolo è stato prodotto da{" "}
+                                                <AddressHashLink address={(item.data as TransferData).to} />
+                                            </p>
                                         </div>
                                     </React.Fragment>
                                 ) : (
@@ -195,9 +197,11 @@ const Home: NextPage<PageProps> = ({ vehicle, events }) => {
                                         </div>
                                         <div className="mb-3">
                                             <h4 className="text-lg font-semibold text-black">Contenuto:</h4>
-                                            <p>{`La proprietà del veicolo è stata trasferita da ${knowAddressName(
-                                                (item.data as TransferData).from
-                                            )} a ${knowAddressName((item.data as TransferData).to)}`}</p>
+                                            <p>
+                                                La proprietà del veicolo è stata trasferita da{" "}
+                                                <AddressHashLink address={(item.data as TransferData).from} /> a{" "}
+                                                <AddressHashLink address={(item.data as TransferData).to} />
+                                            </p>
                                         </div>
                                     </React.Fragment>
                                 )}
