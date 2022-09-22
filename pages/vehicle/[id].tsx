@@ -5,7 +5,7 @@ import axios from "axios";
 import { cleanVehicleMeta } from "components/utils/utils";
 import { Certification, Transfer, VehicleMetaClean } from "@_types/nft";
 import { Timeline } from "flowbite-react";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { AddressToBrand } from "types/addresses";
 import { TxHashLink } from "@ui";
 
@@ -55,48 +55,85 @@ const knowAddressName = (address: string) => {
 };
 
 const Home: NextPage<PageProps> = ({ vehicle, events }) => {
+    const [lastTransfer, setLastTransfer] = useState<TransferData>();
+
+    useEffect(() => {
+        setLastTransfer(events.reverse().find((event) => event.type == 2)!.data as TransferData);
+    }, [events]);
+
     return (
         <BaseLayout>
-            <div>
-                <h1 className="text-4xl font-bold">{vehicle.metadata.properties.brand}</h1>
-                <p className="text-4xl font-bold">{vehicle.metadata.properties.model}</p>
-                <div className="flex justify-start mt-2">
-                    <p className="text-lg font-bold mr-2">Proprietario:</p>
-                    <p className="text-lg">{vehicle.currentOwner}</p>
-                </div>
+            <div className="text-center">
+                <h2 className="text-4xl tracking-tight font-extrabold text-gray-800 sm:text-5xl">Dati del veicolo</h2>
+                <p className="pt-3 text-xl font-light">
+                    Esplora la storia e le caratteristiche del veicolo impresse nella blockchain
+                </p>
             </div>
             <div className="flex justify-center">
-                <img src={vehicle.metadata.image} />
+                <img src={vehicle.metadata.image} className="object-cover w-5/6" />
             </div>
-            <h2 className="text-3xl">Caratteristiche del veicolo</h2>
-            <div className="columns-3">
-                <div className="mb-2">
-                    <h4 className="font-semibold">Cilindrata(cc)</h4>
-                    <p>{vehicle.metadata.properties.engine_displacement}</p>
+            <div>
+                <div>
+                    <h1 className="text-4xl font-bold">{vehicle.metadata.properties.brand}</h1>
+                    <p className="text-4xl font-bold">{vehicle.metadata.properties.model}</p>
                 </div>
-                <div className="mb-2">
-                    <h4 className="font-semibold">Potenza (Kw)</h4>
-                    <p>{vehicle.metadata.properties.engine_power}</p>
+                <table className="mt-6">
+                    <tbody>
+                        <tr>
+                            <td className="text-lg font-semibold pr-2">ID Veicolo:</td>
+                            <td className="text-lg">{vehicle.id}</td>
+                        </tr>
+                        <tr>
+                            <td className="text-lg font-semibold pr-2">Proprietario:</td>
+                            <td>
+                                <Link
+                                    href={`${process.env.NEXT_PUBLIC_TESTNET_EXPLORER_URL}/tx/${lastTransfer?.txHash}`}
+                                >
+                                    <a target="_blank" className="text-lg underline">
+                                        {vehicle.currentOwner}
+                                    </a>
+                                </Link>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="text-lg font-semibold pr-2">N. Proprietari:</td>
+                            <td className="text-lg">{events.filter((event) => event.type == 2).length - 1}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <h2 className="text-3xl font-medium">Caratteristiche del veicolo</h2>
+                <div className="columns-3 mt-6">
+                    <div>
+                        <h4 className="text-lg font-semibold">Cilindrata(cc)</h4>
+                        <p className="text-lg">{vehicle.metadata.properties.engine_displacement}</p>
+                    </div>
+                    <div>
+                        <h4 className="text-lg font-semibold">Potenza (Kw)</h4>
+                        <p className="text-lg">{vehicle.metadata.properties.engine_power}</p>
+                    </div>
+                    <div>
+                        <h4 className="text-lg font-semibold">Carburante</h4>
+                        <p className="text-lg">{vehicle.metadata.properties.engine_fuel}</p>
+                    </div>
                 </div>
-                <div className="mb-2">
-                    <h4 className="font-semibold">Carburante</h4>
-                    <p>{vehicle.metadata.properties.engine_fuel}</p>
+                <div className="columns-3 mt-3">
+                    <div className="mb-2">
+                        <h4 className="text-lg font-semibold">Posti a sedere</h4>
+                        <p className="text-lg">{vehicle.metadata.properties.seats}</p>
+                    </div>
+                    <div className="mb-2">
+                        <h4 className="text-lg font-semibold">Colore</h4>
+                        <p className="text-lg">{vehicle.metadata.properties.color}</p>
+                    </div>
                 </div>
             </div>
-            <div className="columns-3">
-                <div className="mb-2">
-                    <h4 className="font-semibold">Posti a sedere</h4>
-                    <p>{vehicle.metadata.properties.seats}</p>
-                </div>
-                <div className="mb-2">
-                    <h4 className="font-semibold">Colore</h4>
-                    <p>{vehicle.metadata.properties.color}</p>
-                </div>
-            </div>
-            <h2 className="text-3xl">Storia del veicolo</h2>
+
+            <h2 className="text-3xl font-medium">Storia del veicolo</h2>
             <Timeline>
                 {events.map((item) => {
-                    const datetime = new Date(item.timestamp * 1000).toLocaleString("it-IT");
+                    const datetime = item.timestamp;
                     return (
                         <Timeline.Item key={item.timestamp}>
                             <Timeline.Point />
@@ -108,14 +145,14 @@ const Home: NextPage<PageProps> = ({ vehicle, events }) => {
                                             {certificationTypeName[(item.data as CertificationData).code]}
                                         </Timeline.Title>
                                         <div className="mb-3">
-                                            <h4 className="font-semibold text-black">Informazioni:</h4>
+                                            <h4 className="text-lg font-semibold text-black">Informazioni:</h4>
                                             <TxHashLink txHash={(item.data as CertificationData).txHash} />
                                             <p>{`Certificazione emessa da ${knowAddressName(
                                                 (item.data as CertificationData).authority
                                             )}`}</p>
                                         </div>
                                         <div className="mb-3">
-                                            <h4 className="font-semibold text-black">Contenuto:</h4>
+                                            <h4 className="text-lg font-semibold text-black">Contenuto:</h4>
                                             {(item.data as CertificationData).code == 1 ? (
                                                 <React.Fragment>
                                                     È stata assegnata al veicolo la targa{" "}
@@ -139,11 +176,11 @@ const Home: NextPage<PageProps> = ({ vehicle, events }) => {
                                             Identità digitale del veicolo creata
                                         </Timeline.Title>
                                         <div className="mb-3">
-                                            <h4 className="font-semibold text-black">Informazioni:</h4>
+                                            <h4 className="text-lg font-semibold text-black">Informazioni:</h4>
                                             <TxHashLink txHash={(item.data as TransferData).txHash} />
                                         </div>
                                         <div className="mb-3">
-                                            <h4 className="font-semibold text-black">Contenuto:</h4>
+                                            <h4 className="text-lg font-semibold text-black">Contenuto:</h4>
                                             {`Il veicolo è stato prodotto da ${knowAddressName(
                                                 (item.data as TransferData).to
                                             )}`}
@@ -153,11 +190,11 @@ const Home: NextPage<PageProps> = ({ vehicle, events }) => {
                                     <React.Fragment>
                                         <Timeline.Title className="mb-2">Passaggio di proprietà</Timeline.Title>
                                         <div className="mb-3">
-                                            <h4 className="font-semibold text-black">Informazioni:</h4>
+                                            <h4 className="text-lg font-semibold text-black">Informazioni:</h4>
                                             <TxHashLink txHash={(item.data as TransferData).txHash} />
                                         </div>
                                         <div className="mb-3">
-                                            <h4 className="font-semibold text-black">Contenuto:</h4>
+                                            <h4 className="text-lg font-semibold text-black">Contenuto:</h4>
                                             <p>{`La proprietà del veicolo è stata trasferita da ${knowAddressName(
                                                 (item.data as TransferData).from
                                             )} a ${knowAddressName((item.data as TransferData).to)}`}</p>
@@ -240,7 +277,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const eventsDataArray = vehicleFullDataRaw.transfers
         .map((item) => formatEventData(item, false))
         .concat(vehicleFullDataRaw.certifications.map((item) => formatEventData(item, true)))
-        .sort((a, b) => b.timestamp - a.timestamp);
+        .sort((a, b) => b.timestamp - a.timestamp)
+        .map((event: eventData) => {
+            return {
+                ...event,
+                timestamp: new Date(event.timestamp * 1000).toLocaleString("it-IT"),
+            };
+        });
 
     return {
         props: {
