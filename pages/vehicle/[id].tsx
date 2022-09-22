@@ -281,7 +281,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         .map((event: eventData) => {
             return {
                 ...event,
-                timestamp: new Date(event.timestamp * 1000).toLocaleString("it-IT"),
+                timestamp: new Date(event.timestamp * 1000).toLocaleString("it-IT", { timeZone: "Europe/Rome" }),
             };
         });
 
