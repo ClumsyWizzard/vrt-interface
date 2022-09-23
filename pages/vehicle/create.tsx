@@ -15,8 +15,6 @@ import CreateVehicleForm from "@ui/forms/createVehicle";
 import CreateCertificationForm from "@ui/forms/createCertification";
 import { AddressToBrand } from "@_types/addresses";
 
-const ALLOWED_FIELDS = ["name", "description", "image", "attributes"];
-
 const NftCreate: NextPage = () => {
     const { account } = useAccount();
     const { ethereum, contracts } = useWeb3();
