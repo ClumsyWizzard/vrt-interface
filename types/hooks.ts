@@ -1,8 +1,8 @@
 import { MetaMaskInpageProvider } from "@metamask/providers";
-import { Contract, providers } from "ethers";
+import { providers } from "ethers";
 import { SWRResponse } from "swr";
-import { VehicleMarketplaceContract } from "./VehicleMarketplaceContract";
-import { VehicleRegistrationTokenContract } from "./VehicleRegistrationTokenContract";
+import { VehicleMarketplaceContract } from "vrt-project-core/types/VehicleMarketplaceContract";
+import { VehicleRegistrationTokenContract } from "vrt-project-core/types/VehicleRegistrationTokenContract";
 
 export type Web3Dependencies = {
     provider: providers.Web3Provider;
