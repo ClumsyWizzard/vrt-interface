@@ -13,7 +13,7 @@ ARG DOMAIN
 ARG NETWORK_ID
 ARG CHAIN_ID
 ARG TESTNET_RPC
-ARG TESTNET_EXPLORER
+ARG TESTNET_EXPLORER_URL
 ARG IPFS_GATEWAY_URL
 ARG GRAPH_QUERY_BASE_URL
 ARG SUBGRAPH_NAME
@@ -39,6 +39,7 @@ ENV NODE_ENV production
 # If you are using a custom next.config.js file, uncomment this line.
 
 COPY --from=builder /app ./
+COPY --from=builder /app/node_modules/vrt-project-core/artifacts/ ./public/contracts/
 
 #COPY --from=builder /app/next.config.js ./
 #COPY --from=builder /app/public ./public

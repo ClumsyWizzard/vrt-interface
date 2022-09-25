@@ -1,7 +1,5 @@
-import { AddressToBrand } from "types/addresses";
 import type { NextPage } from "next";
 import React, { ChangeEvent } from "react";
-import { useAccount } from "@hooks/web3";
 import { Label, Select } from "flowbite-react";
 import { VehicleMetaClean } from "@_types/nft";
 
@@ -13,13 +11,11 @@ type PageProps = {
 };
 
 const CreateVehicleForm: NextPage<PageProps> = ({ handlePropertiesChange, handleFile, createNft, vehicleMeta }) => {
-    const { account } = useAccount();
-
     return (
         <div>
             <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
                 <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="name" className="block text-base font-medium text-gray-700">
                         Casa automobilistica
                     </label>
                     <div className="mt-1 flex rounded-md shadow-sm">
@@ -28,12 +24,12 @@ const CreateVehicleForm: NextPage<PageProps> = ({ handlePropertiesChange, handle
                             type="text"
                             disabled={true}
                             name="name"
-                            className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                            className="focus:ring-sunray focus:border-sunray flex-1 block w-full rounded-md sm:text-sm border-gray-300 bg-gray-50"
                         />
                     </div>
                 </div>
                 <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="name" className="block text-base font-medium text-gray-700">
                         Nome modello
                     </label>
                     <div className="mt-1 flex rounded-md shadow-sm">
@@ -42,13 +38,13 @@ const CreateVehicleForm: NextPage<PageProps> = ({ handlePropertiesChange, handle
                             onChange={handlePropertiesChange}
                             type="text"
                             name="model"
-                            className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
-                            placeholder="Nome del modello del veicolo..."
+                            className="focus:ring-sunray focus:border-sunray flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+                            placeholder="Inserisci il nome del modello del veicolo..."
                         />
                     </div>
                 </div>
                 <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="name" className="block text-base font-medium text-gray-700">
                         Numero di telaio
                     </label>
                     <div className="mt-1 flex rounded-md shadow-sm">
@@ -57,13 +53,13 @@ const CreateVehicleForm: NextPage<PageProps> = ({ handlePropertiesChange, handle
                             onChange={handlePropertiesChange}
                             type="text"
                             name="frame_number"
-                            className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
-                            placeholder="Numero di telaio"
+                            className="focus:ring-sunray focus:border-sunray flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+                            placeholder="Inserisci il numero di telaio"
                         />
                     </div>
                 </div>
                 <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="name" className="block text-base font-medium text-gray-700">
                         Colore carrozzeria
                     </label>
                     <div className="mt-1 flex rounded-md shadow-sm">
@@ -72,13 +68,13 @@ const CreateVehicleForm: NextPage<PageProps> = ({ handlePropertiesChange, handle
                             onChange={handlePropertiesChange}
                             type="text"
                             name="color"
-                            className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
-                            placeholder="Colore della carrozzeria..."
+                            className="focus:ring-sunray focus:border-sunray flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+                            placeholder="Inserisci il colore della carrozzeria..."
                         />
                     </div>
                 </div>
                 <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="name" className="block text-base font-medium text-gray-700">
                         Cilindarata (cc)
                     </label>
                     <div className="mt-1 flex rounded-md shadow-sm">
@@ -87,13 +83,13 @@ const CreateVehicleForm: NextPage<PageProps> = ({ handlePropertiesChange, handle
                             onChange={handlePropertiesChange}
                             type="text"
                             name="engine_displacement"
-                            className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
-                            placeholder="Cilindrata del veicolo..."
+                            className="focus:ring-sunray focus:border-sunray flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+                            placeholder="Inserisci la cilindrata del veicolo..."
                         />
                     </div>
                 </div>
                 <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="name" className="block text-base font-medium text-gray-700">
                         Potenza (KW)
                     </label>
                     <div className="mt-1 flex rounded-md shadow-sm">
@@ -102,15 +98,15 @@ const CreateVehicleForm: NextPage<PageProps> = ({ handlePropertiesChange, handle
                             onChange={handlePropertiesChange}
                             type="text"
                             name="engine_power"
-                            className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
-                            placeholder="Potenza dichiarata del veicolo..."
+                            className="focus:ring-sunray focus:border-sunray flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+                            placeholder="Inserisci la potenza dichiarata del veicolo..."
                         />
                     </div>
                 </div>
                 <div>
-                    <div className="mb-2 block">
-                        <Label htmlFor="countries" value="Tipo di Carburante" />
-                    </div>
+                    <label htmlFor="name" className="block text-base font-medium text-gray-700 mb-1">
+                        Tipo di carburante
+                    </label>
                     <Select
                         value={vehicleMeta.properties.engine_fuel}
                         required
@@ -125,9 +121,9 @@ const CreateVehicleForm: NextPage<PageProps> = ({ handlePropertiesChange, handle
                     </Select>
                 </div>
                 <div>
-                    <div className="mb-2 block">
-                        <Label htmlFor="countries" value="Classe di emissioni" />
-                    </div>
+                    <label htmlFor="name" className="block text-base font-medium text-gray-700 mb-1">
+                        Classe di emissioni
+                    </label>
                     <Select
                         value={vehicleMeta.properties.emission_class}
                         required
@@ -143,7 +139,7 @@ const CreateVehicleForm: NextPage<PageProps> = ({ handlePropertiesChange, handle
                     </Select>
                 </div>
                 <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="name" className="block text-base font-medium text-gray-700 mb-1">
                         Numero di posti
                     </label>
                     <div className="mt-1 flex rounded-md shadow-sm">
@@ -152,8 +148,8 @@ const CreateVehicleForm: NextPage<PageProps> = ({ handlePropertiesChange, handle
                             onChange={handlePropertiesChange}
                             type="text"
                             name="seats"
-                            className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
-                            placeholder="Numero di posti a sedere del veicolo..."
+                            className="focus:ring-sunray focus:border-sunray flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+                            placeholder="Inserisci il numero di posti a sedere del veicolo..."
                         />
                     </div>
                 </div>
@@ -162,7 +158,7 @@ const CreateVehicleForm: NextPage<PageProps> = ({ handlePropertiesChange, handle
                     <img src={vehicleMeta.image} alt="" className="h-40" />
                 ) : (
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Image</label>
+                        <label className="block text-base font-medium text-gray-700">Immagine</label>
                         <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                             <div className="space-y-1 text-center">
                                 <svg
@@ -179,12 +175,12 @@ const CreateVehicleForm: NextPage<PageProps> = ({ handlePropertiesChange, handle
                                         strokeLinejoin="round"
                                     />
                                 </svg>
-                                <div className="flex text-sm text-gray-600">
+                                <div className="flex text-base text-gray-600">
                                     <label
                                         htmlFor="file-upload"
-                                        className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                                        className="relative cursor-pointer bg-white rounded-md font-medium text-sunray hover:text-sunrayfocus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-sunray"
                                     >
-                                        <span>Upload a file</span>
+                                        <span>Carica un file</span>
                                         <input
                                             onChange={handleFile}
                                             id="file-upload"
@@ -193,19 +189,19 @@ const CreateVehicleForm: NextPage<PageProps> = ({ handlePropertiesChange, handle
                                             className="sr-only"
                                         />
                                     </label>
-                                    <p className="pl-1">or drag and drop</p>
+                                    <p className="pl-1">o trascinalo in quest&apos;area</p>
                                 </div>
-                                <p className="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                                <p className="text-base text-gray-500">PNG, JPG, GIF up to 10MB</p>
                             </div>
                         </div>
                     </div>
                 )}
             </div>
-            <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <div className="px-4 py-3 text-right mb-3 sm:px-6">
                 <button
                     onClick={createNft}
                     type="button"
-                    className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-sunray hover:bg-sunray focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sunray"
                 >
                     Crea
                 </button>

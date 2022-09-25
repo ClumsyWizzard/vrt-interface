@@ -22,7 +22,7 @@ const Walletbar: FunctionComponent<WalletbarProps> = ({ isInstalled, isLoading, 
                 <button
                     onClick={() => {}}
                     type="button"
-                    className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-sunray hover:bg-sunray focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sunray"
                 >
                     Loading ...
                 </button>
@@ -36,7 +36,7 @@ const Walletbar: FunctionComponent<WalletbarProps> = ({ isInstalled, isLoading, 
                 <div>
                     <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                         <span className="sr-only">Open user menu</span>
-                        <img className="h-8 w-8 rounded-full" src="/images/default_user_image.png" alt="" />
+                        <img className="h-8 w-8 rounded-full" src="/images/default_avatar.png" alt="" />
                     </Menu.Button>
                 </div>
 
@@ -45,19 +45,23 @@ const Walletbar: FunctionComponent<WalletbarProps> = ({ isInstalled, isLoading, 
                         {() => (
                             <button
                                 disabled={true}
-                                className="disabled:text-gray-500 text-xs block px-4 pt-2 text-gray-700"
+                                className="disabled:text-gray-500 text-sm block px-4 pt-2 text-gray-800"
                             >
-                                {`0x${account[2]}${account[3]}${account[4]}....${account.slice(-4)}`}
+                                Indirizzo wallet{" "}
+                                {`0x${account[2]}${account[3]}${account[4]}${account[5]}${account[6]}${
+                                    account[7]
+                                }....${account.slice(-6)}`}
                             </button>
                         )}
                     </Menu.Item>
+                    <Menu.Item>{() => <hr className="mt-3" />}</Menu.Item>
                     <Menu.Item>
                         {({ active }) => (
                             <Link href="/profile">
                                 <a
                                     className={classNames(
                                         active ? "bg-gray-100" : "",
-                                        "block px-4 py-2 text-sm text-gray-700"
+                                        "block px-4 py-2 text-normal text-gray-700 font-normal"
                                     )}
                                 >
                                     Profilo personale
@@ -78,9 +82,9 @@ const Walletbar: FunctionComponent<WalletbarProps> = ({ isInstalled, isLoading, 
                         connect();
                     }}
                     type="button"
-                    className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="ml-2 inline-flex items-center px-4 py-1.5 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-sunray hover:bg-sunray focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sunray"
                 >
-                    Connect Wallet
+                    Connettiti
                 </button>
             </div>
         );
@@ -92,9 +96,9 @@ const Walletbar: FunctionComponent<WalletbarProps> = ({ isInstalled, isLoading, 
                         window.open("https://metamask.io", "_ blank");
                     }}
                     type="button"
-                    className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="ml-2 inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-sunray hover:bg-sunray focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sunray"
                 >
-                    No Wallet
+                    Installa Metamask
                 </button>
             </div>
         );

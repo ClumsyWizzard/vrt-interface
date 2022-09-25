@@ -1,6 +1,5 @@
 import { CryptoHookFactory } from "@_types/hooks";
-import { SaleTicket, Vehicle, VehicleMetadataRaw } from "@_types/nft";
-import { ethers } from "ethers";
+import { SaleTicket, Vehicle } from "@_types/nft";
 import { useCallback } from "react";
 import { toast } from "react-toastify";
 import useSWR from "swr";
@@ -61,7 +60,7 @@ export const hookFactory: ListedNftsHookFactory =
                     ...ticketData.token,
                     metadata: cleanVehicleMeta(ticketData.token.metadata),
                 } as Vehicle;
-                const date = new Date(ticketData.timestamp * 1000).toLocaleString("it-IT");
+                const date = new Date(ticketData.timestamp * 1000).toLocaleString("it-IT", { timeZone: "Europe/Rome" });
                 saleTickets.push({
                     id: ticketData.id,
                     price: ticketData.price,
@@ -86,9 +85,9 @@ export const hookFactory: ListedNftsHookFactory =
                     });
 
                     await toast.promise(result!.wait(), {
-                        pending: "Processing transaction",
-                        success: "Nft is yours! Go to Profile page",
-                        error: "Processing error",
+                        pending: "Validazione della transazione in corso...",
+                        success: "Il veicolo è stato acquistato con successo",
+                        error: "Validazione della transazione fallita",
                     });
                 } catch (e: any) {
                     console.error(e.message);

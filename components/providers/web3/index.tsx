@@ -2,8 +2,8 @@ import { createContext, FunctionComponent, useContext, useEffect, useState } fro
 import { createDefaultState, createWeb3State, loadContract, Web3State } from "./utils";
 import { ethers } from "ethers";
 import { MetaMaskInpageProvider } from "@metamask/providers";
-import { VehicleMarketplaceContract } from "@_types/VehicleMarketplaceContract";
-import { VehicleRegistrationTokenContract } from "@_types/VehicleRegistrationTokenContract";
+import { VehicleMarketplaceContract } from "vrt-project-core/types/VehicleMarketplaceContract";
+import { VehicleRegistrationTokenContract } from "vrt-project-core/types/VehicleRegistrationTokenContract";
 
 const pageReload = () => {
     window.location.reload();

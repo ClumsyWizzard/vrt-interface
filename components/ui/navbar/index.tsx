@@ -50,10 +50,10 @@ export default function Navbar() {
                                             <ActiveLink
                                                 key={item.name}
                                                 href={item.href}
-                                                activeClass="bg-gray-900 text-white"
+                                                activeClass="bg-platinum text-onyx"
                                             >
                                                 <a
-                                                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                                    className="text-gray-300 hover:bg-platinum hover:text-onyx px-3 py-2 rounded-md text-sm font-medium"
                                                     aria-current={item.current ? "page" : undefined}
                                                 >
                                                     {item.name}
@@ -65,19 +65,25 @@ export default function Navbar() {
                             </div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                                 <div className="text-gray-300 self-center mr-2">
-                                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-purple-100 text-purple-800">
-                                        <svg
-                                            className="-ml-0.5 mr-1.5 h-2 w-2 text-indigo-400"
-                                            fill="currentColor"
-                                            viewBox="0 0 8 8"
-                                        >
-                                            <circle cx={4} cy={4} r={3} />
-                                        </svg>
-                                        {network.isLoading
-                                            ? "Loading..."
-                                            : account.isInstalled
-                                            ? network.data
-                                            : "Install Web3 Wallet"}
+                                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-gray-50 text-gray-900">
+                                        {network.isLoading || network.data != "Ganache" ? (
+                                            <svg
+                                                className="-ml-0.5 mr-1.5 h-3 w-3 text-fire-100"
+                                                fill="currentColor"
+                                                viewBox="0 0 8 8"
+                                            >
+                                                <circle cx={4} cy={4} r={4} />
+                                            </svg>
+                                        ) : (
+                                            <svg
+                                                className="-ml-0.5 mr-1.5 h-3 w-3 text-green-400"
+                                                fill="currentColor"
+                                                viewBox="0 0 8 8"
+                                            >
+                                                <circle cx={4} cy={4} r={4} />
+                                            </svg>
+                                        )}
+                                        Ganache
                                     </span>
                                 </div>
                                 <Walletbar

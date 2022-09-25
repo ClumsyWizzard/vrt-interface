@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { withIronSession, Session } from "next-iron-session";
 import * as util from "ethereumjs-util";
-import contract from "../../public/contracts/VehicleRegistrationToken.json";
+import VehicleRegistrationTokenContract from "vrt-project-core/artifacts/VehicleRegistrationToken.json";
 
 const SUPPORTED_NETWORKS = {
     "5777": "Ganache",
@@ -15,7 +15,7 @@ type NETWORK = typeof SUPPORTED_NETWORKS;
 
 const targetNetwork = process.env.NEXT_PUBLIC_NETWORK_ID as keyof NETWORK;
 
-const contractNetworks = contract["networks"] as NETWORKS;
+const contractNetworks = VehicleRegistrationTokenContract["networks"] as NETWORKS;
 export const contractAddress = contractNetworks[targetNetwork]["address"];
 
 export function withSession(handler: any) {
