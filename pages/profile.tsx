@@ -7,8 +7,7 @@ import { Vehicle } from "@_types/nft";
 import { useOwnedNfts } from "@hooks/web3";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-
-const tabs = [{ name: "In tuo possesso", href: "#", current: true }];
+import { ExclamationCircleIcon } from "@heroicons/react/solid";
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
@@ -42,42 +41,66 @@ const Profile: NextPage = () => {
                                     </p>
                                 </div>
                                 <div className="mt-12 pb-16">
-                                    <ul
-                                        role="list"
-                                        className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8"
-                                    >
-                                        {(nfts.data as Vehicle[]).map((nft) => (
-                                            <li key={nft.id} onClick={() => setActiveNft(nft)} className="relative">
-                                                <div
-                                                    className={classNames(
-                                                        nft.id === activeNft?.id
-                                                            ? "ring-2 ring-offset-2 ring-gray-700"
-                                                            : "focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-gray-700",
-                                                        "group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden"
-                                                    )}
-                                                >
-                                                    <img
-                                                        src={nft.metadata.image}
-                                                        alt=""
+                                    {nfts.data!.length > 0 ? (
+                                        <ul
+                                            role="list"
+                                            className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8"
+                                        >
+                                            {(nfts.data as Vehicle[]).map((nft) => (
+                                                <li key={nft.id} onClick={() => setActiveNft(nft)} className="relative">
+                                                    <div
                                                         className={classNames(
-                                                            nft.id === activeNft?.id ? "" : "group-hover:opacity-75",
-                                                            "object-cover h-36 w-96"
+                                                            nft.id === activeNft?.id
+                                                                ? "ring-2 ring-offset-2 ring-gray-700"
+                                                                : "focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-gray-700",
+                                                            "group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden"
                                                         )}
+                                                    >
+                                                        <img
+                                                            src={nft.metadata.image}
+                                                            alt=""
+                                                            className={classNames(
+                                                                nft.id === activeNft?.id
+                                                                    ? ""
+                                                                    : "group-hover:opacity-75",
+                                                                "object-cover h-36 w-96"
+                                                            )}
+                                                        />
+                                                        <button
+                                                            type="button"
+                                                            className="absolute inset-0 focus:outline-none"
+                                                        ></button>
+                                                    </div>
+                                                    <p className="mt-4 block text-sm font-medium text-gray-900 truncate pointer-events-none">
+                                                        {nft.metadata.properties.brand}
+                                                    </p>
+                                                    <p className="block text-sm font-medium text-gray-900 truncate pointer-events-none">
+                                                        {nft.metadata.properties.model}
+                                                    </p>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    ) : (
+                                        <div className="mt-12 rounded-md bg-gray-100 p-4 mb-10 border-2 border-gray-3s00">
+                                            <div className="flex">
+                                                <div className="flex-shrink-0">
+                                                    <ExclamationCircleIcon
+                                                        className="h-8 w-8 text-yellow-400"
+                                                        aria-hidden="true"
                                                     />
-                                                    <button
-                                                        type="button"
-                                                        className="absolute inset-0 focus:outline-none"
-                                                    ></button>
                                                 </div>
-                                                <p className="mt-4 block text-sm font-medium text-gray-900 truncate pointer-events-none">
-                                                    {nft.metadata.properties.brand}
-                                                </p>
-                                                <p className="block text-sm font-medium text-gray-900 truncate pointer-events-none">
-                                                    {nft.metadata.properties.model}
-                                                </p>
-                                            </li>
-                                        ))}
-                                    </ul>
+                                                <div className="ml-3">
+                                                    <h3 className="text-lg font-medium text-gray-800">Attenzione</h3>
+                                                    <div className="mt-1 text-normal text-gray-700">
+                                                        <p>
+                                                            Non possiedi nessun veicolo al momento. Acquistane uno nel
+                                                            marketplace.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </main>
