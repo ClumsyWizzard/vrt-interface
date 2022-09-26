@@ -7,7 +7,7 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "genContractType": "abi-types-generator './artifacts/VehicleMarketplace.json' --output='./types' --name=VehicleMarketplaceContract --provider=ethers_v5 && abi-types-generator './artifacts/VehicleRegistrationToken.json' --output='./types' --name=VehicleRegistrationTokenContract --provider=ethers_v5 ",
+        "gen-contract-types": "abi-types-generator './artifacts/VehicleMarketplace.json' --output='./types' --name=VehicleMarketplaceContract --provider=ethers_v5 && abi-types-generator './artifacts/VehicleRegistrationToken.json' --output='./types' --name=VehicleRegistrationTokenContract --provider=ethers_v5 ",
         "create": "graph create example --node https://api.thegraph.com/deploy/",
         "create-local": "graph create example --node http://127.0.0.1:8020",
         "codegen": "graph codegen",

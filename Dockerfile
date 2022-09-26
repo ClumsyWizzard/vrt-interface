@@ -3,11 +3,13 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 
+
 # Rebuild the source code only when needed
 FROM node:16-alpine AS builder
 WORKDIR /app
 COPY . .
 COPY --from=dependencies /app/node_modules ./node_modules
+RUN npm run gen-contract-types
 
 ARG DOMAIN
 ARG NETWORK_ID

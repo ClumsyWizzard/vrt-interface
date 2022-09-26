@@ -1,18 +1,21 @@
-# Instructions
+# Vehicle Registration Token (VRT) - Interface
 
-## Endpoints HTTP
+An interface for Vehicle Registration Token Project, a protocol for trace vehicle's property and their history in Ethereum blockchain.
 
-Graph: http://127.0.0.1:8000/subgraphs/name/example/graphql
+## Prerequisites:
 
-IPFS: http://localhost:5001/
+-   Docker
+-   Before starting interface you need to run [Vehicle Registration Token (VRT) - Core](https://github.com/1M4nt0/tesi-uniud-2022-core).
 
-## Launch application
+## Starting interface
 
-### Start Dev Server
+### Clone repository
 
-1. Run docker (docker compose up)
-2. npm run dev
+1. `clone this repository`
+2. `cd vrt-project-interface`
+3. `npm install`
 
-### Gen Dev Files
+### Start docker container
 
-2. npm run genContractType
+1. `cd vrt-project-interface/docker`
+2. `docker compose up`
