@@ -16,7 +16,7 @@ type OwnedNftsHookFactory = CryptoHookFactory<Vehicle[], UseOwnedNftsResponse>;
 export type UseOwnedNftsHook = ReturnType<OwnedNftsHookFactory>;
 
 export const hookFactory: OwnedNftsHookFactory =
-    ({ contracts, provider, ethereum }) =>
+    ({ contracts }) =>
     () => {
         const { account } = useAccount();
         const { data, ...swr } = useSWR(contracts ? "web3/useOwnedNfts" : null, async () => {
@@ -58,7 +58,7 @@ export const hookFactory: OwnedNftsHookFactory =
         const listNft = useCallback(
             async (tokenId: number, price: number) => {
                 try {
-                    const result = await _contract!.placeNftOnSale(tokenId, price.toString());
+                    const result = await _contract!.putVehicleOnSale(tokenId, price.toString());
 
                     await toast.promise(result!.wait(), {
                         pending: "Validazione della transazione in corso...",

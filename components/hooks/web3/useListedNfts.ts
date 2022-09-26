@@ -7,7 +7,7 @@ import axios from "axios";
 import { cleanVehicleMeta } from "components/utils/utils";
 
 type UseListedNftsResponse = {
-    buyNft: (token: number, value: number) => Promise<void>;
+    buyVehicle: (token: number, value: number) => Promise<void>;
 };
 type ListedNftsHookFactory = CryptoHookFactory<SaleTicket[], UseListedNftsResponse>;
 
@@ -77,10 +77,10 @@ export const hookFactory: ListedNftsHookFactory =
         });
 
         const _contract = contracts?.vehicleMarketplaceContract;
-        const buyNft = useCallback(
+        const buyVehicle = useCallback(
             async (tokenId: number, value: number) => {
                 try {
-                    const result = await _contract!.buyNft(tokenId, {
+                    const result = await _contract!.buyVehicle(tokenId, {
                         value: value.toString(),
                     });
 
@@ -98,7 +98,7 @@ export const hookFactory: ListedNftsHookFactory =
 
         return {
             ...swr,
-            buyNft,
+            buyVehicle,
             data: data || [],
         };
     };
