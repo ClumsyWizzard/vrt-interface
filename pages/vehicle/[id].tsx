@@ -290,7 +290,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const eventsDataArray = vehicleFullDataRaw.transfers
         .map((item) => formatEventData(item, false))
         .concat(vehicleFullDataRaw.certifications.map((item) => formatEventData(item, true)))
-        .sort((a, b) => b.timestamp - a.timestamp)
+        .sort((a, b) => a.timestamp - b.timestamp)
         .map((event: eventData) => {
             return {
                 ...event,
