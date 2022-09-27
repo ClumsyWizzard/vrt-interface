@@ -1,8 +1,8 @@
 import { MetaMaskInpageProvider } from "@metamask/providers";
 import { providers } from "ethers";
 import { SWRResponse } from "swr";
-import { VehicleMarketplaceContract } from "vrt-project-core/types/VehicleMarketplaceContract";
-import { VehicleRegistrationTokenContract } from "vrt-project-core/types/VehicleRegistrationTokenContract";
+import { VehicleMarketplaceContract } from "./VehicleMarketplaceContract";
+import { VehicleRegistrationTokenContract } from "./VehicleRegistrationTokenContract";
 
 export type Web3Dependencies = {
     provider: providers.Web3Provider;
@@ -21,7 +21,3 @@ export type CryptoHookFactory<D = any, R = any, P = any> = {
 export type CryptoHandlerHook<D = any, R = any, P = any> = (params?: P) => CryptoSWRResponse<D, R>;
 
 export type CryptoSWRResponse<D = any, R = any> = SWRResponse<D> & R;
-
-// export type CryptoHookFactory<D = any, P = any> = {
-//   (d: Partial<Web3Dependencies>): (params: P) => SWRResponse<D>
-// }

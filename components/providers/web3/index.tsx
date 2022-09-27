@@ -2,8 +2,8 @@ import { createContext, FunctionComponent, useContext, useEffect, useState } fro
 import { createDefaultState, createWeb3State, loadContract, Web3State } from "./utils";
 import { ethers } from "ethers";
 import { MetaMaskInpageProvider } from "@metamask/providers";
-import { VehicleMarketplaceContract } from "vrt-project-core/types/VehicleMarketplaceContract";
-import { VehicleRegistrationTokenContract } from "vrt-project-core/types/VehicleRegistrationTokenContract";
+import { VehicleMarketplaceContract } from "@_types/VehicleMarketplaceContract";
+import { VehicleRegistrationTokenContract } from "@_types/VehicleRegistrationTokenContract";
 
 const pageReload = () => {
     window.location.reload();
@@ -60,7 +60,7 @@ const Web3Provider: FunctionComponent = ({ children }) => {
                     })
                 );
             } catch (e: any) {
-                console.error("Please, install web3 wallet");
+                console.error(e, "Please, install web3 wallet");
                 setWeb3Api((api) =>
                     createWeb3State({
                         ...(api as any),

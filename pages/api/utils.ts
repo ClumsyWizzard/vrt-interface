@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { withIronSession, Session } from "next-iron-session";
 import * as util from "ethereumjs-util";
-import VehicleRegistrationTokenContract from "vrt-project-core/artifacts/VehicleRegistrationToken.json";
+import VehicleRegistrationTokenContract from "vrt-core/artifacts/VehicleRegistrationToken.json";
 
 const SUPPORTED_NETWORKS = {
     "5777": "Ganache",
