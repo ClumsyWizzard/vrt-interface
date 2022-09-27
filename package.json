@@ -1,7 +1,7 @@
 {
     "name": "vrt-interface",
     "version": "0.0.1",
-    "description": "interface for Vehicle Registration Token Project, a protocol for trace vehicle's property and their history in Ethereum blockchain.",
+    "description": "Interface for Vehicle Registration Token Project, a protocol for trace vehicle's property and their history in Ethereum blockchain.",
     "author": {
         "name": "Andrea Antonutti",
         "email": "dev.andrea.antonutti@gmail.com"
@@ -20,7 +20,7 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "gen-contract-types": "abi-types-generator './artifacts/VehicleMarketplace.json' --output='./types' --name=VehicleMarketplaceContract --provider=ethers_v5 && abi-types-generator './artifacts/VehicleRegistrationToken.json' --output='./types' --name=VehicleRegistrationTokenContract --provider=ethers_v5 ",
+        "gen-contract-types": "abi-types-generator './node_modules/vrt-core/artifacts/VehicleMarketplace.json' --output='./types' --name=VehicleMarketplaceContract --provider=ethers_v5 && abi-types-generator './node_modules/vrt-core/artifacts/VehicleRegistrationToken.json' --output='./types' --name=VehicleRegistrationTokenContract --provider=ethers_v5 ",
         "create": "graph create example --node https://api.thegraph.com/deploy/",
         "create-local": "graph create example --node http://127.0.0.1:8020",
         "codegen": "graph codegen",

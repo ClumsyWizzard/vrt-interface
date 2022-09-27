@@ -41,10 +41,7 @@ ENV NODE_ENV production
 # If you are using a custom next.config.js file, uncomment this line.
 
 COPY --from=builder /app ./
-COPY --from=builder /app/artifacts/ ./public/contracts/
-
-RUN mkdir -p ./artifacts
-COPY --from=builder /app/artifacts/ ./artifacts/
+COPY --from=builder /app/node_modules/vrt-core/artifacts/ ./public/contracts/
 
 #COPY --from=builder /app/next.config.js ./
 #COPY --from=builder /app/public ./public

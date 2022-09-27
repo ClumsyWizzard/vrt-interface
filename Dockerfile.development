@@ -32,11 +32,7 @@ COPY tailwind.config.js /app/tailwind.config.js
 COPY tsconfig.json /app/tsconfig.json
 COPY /public ./public/
 RUN mkdir -p ./public/contracts
-COPY /artifacts/ ./public/contracts/
-
-
-RUN mkdir -p ./artifacts
-COPY /artifacts/ ./artifacts/
+COPY node_modules/vrt-core/artifacts/ ./public/contracts/
 
 EXPOSE 3000
 

@@ -29,7 +29,7 @@ const certificationTypeName: { [k: string]: string } = {
     3: "Lavori/Riparazioni",
     4: "Pagamento del bollo",
     5: "Collaudo",
-    6: "Revisione",
+    6: "Tagliando",
 };
 
 type CertificationData = {

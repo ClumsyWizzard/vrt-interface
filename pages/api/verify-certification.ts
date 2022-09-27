@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 import { Session } from "next-iron-session";
 import { NextApiRequest, NextApiResponse } from "next";
 import { withSession, contractAddress, addressCheckMiddleware } from "./utils";
-import { VehicleMetaClean, VehicleMetadataRaw, VehicleCertificationDataClean } from "@_types/nft";
+import { VehicleCertificationDataClean } from "@_types/nft";
 import axios from "axios";
 import FormData from "form-data";
 

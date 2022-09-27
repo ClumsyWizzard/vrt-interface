@@ -1,6 +1,6 @@
 export const AddressToBrand: { [k: string]: string } = {
-    "0x00b8c4a7cd5678e13a77d9b207e472faea450f23": "Audi",
-    "0xa508dd875f10c33c52a8abb20e16fc68e981f186": "FIAT GROUP AUTOMOBILES SPA",
-    "0x63fd9352ccb922e0cb514570ce70fc9fe9515d63": "ACI Udine",
-    "0x103f9ffb663c4ef1c0c583ecf265f761e8c55df5": "Autofficina XXX",
+    "0xa508dD875f10C33C52a8abb20E16fc68E981F186": "Audi",
+    "0xd4039eB67CBB36429Ad9DD30187B94f6A5122215": "Fiat",
+    "0xd5cC383881D6d9A7dc1891A0235E11D03Cb992d3": "ACI Udine",
+    "0xa1D9cBa049eAfF292F654e416773470Ad939d6Ae": "Autofficina Mario",
 };
