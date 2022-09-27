@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  app:
+    image: im4nt0/vrt-interface
+    container_name: vrt-interface
+    restart: always
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      args:
+        DOMAIN: host.docker.internal
+        NETWORK_ID: 5777
+        CHAIN_ID: 1337
+        TESTNET_RPC: http://host.docker.internal:8545
+        TESTNET_EXPLORER_URL: http://host.docker.internal:4000
+        IPFS_GATEWAY_URL: http://host.docker.internal:8080
+        IPFS_API_URL: http://host.docker.internal:5001
+        GRAPH_QUERY_BASE_URL: http://host.docker.internal:8000
+        SUBGRAPH_NAME: vrtproject
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    ports:
+      - "3000:3000"
+    networks:
+      - vrt-project-network-proxy
+
+networks:
+  vrt-project-network-proxy:
+    external:
+      name: vrtproject
