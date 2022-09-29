@@ -4,6 +4,7 @@ import { FunctionComponent } from "react";
 import { useAccount, useNetwork } from "@hooks/web3";
 import { SaleTicket } from "../../../../types/nft";
 import { useRouter } from "next/router";
+import { AddressToBrand } from "@_types/addresses";
 
 type NftItemProps = {
     item: SaleTicket;
@@ -37,7 +38,11 @@ const NftItem: FunctionComponent<NftItemProps> = ({ item, buyNft }) => {
                             <div className="ml-3">
                                 <p className="text-sm font-medium text-gray-700 group-hover:text-gray-900">Venditore</p>
                                 <p className="text-sm font-base text-gray-500 group-hover:text-gray-700">
-                                    {item.seller === account.data ? "Tu" : shortifyAddress(item.seller)}
+                                    {item.seller === account.data
+                                        ? "Tu"
+                                        : AddressToBrand[item.seller!] == undefined
+                                        ? shortifyAddress(item.seller)
+                                        : AddressToBrand[item.seller!]}
                                 </p>
                             </div>
                         </div>
@@ -55,7 +60,7 @@ const NftItem: FunctionComponent<NftItemProps> = ({ item, buyNft }) => {
                                 <p className="inline-block">{item.token.metadata!.properties.color}</p>
                             </div>
                             <div className="mt-3 mb-3 text-base text-gray-500">
-                                <p className="inline-block font-medium text-gray-700">Porte:</p>{" "}
+                                <p className="inline-block font-medium text-gray-700">Posti a sedere:</p>{" "}
                                 <p className="inline-block">{item.token.metadata!.properties.seats}</p>
                             </div>
                             <div className="mt-3 mb-3 text-base text-gray-500">

@@ -1,6 +1,10 @@
+/**
+ * All addresses must be lower case
+ */
+
 export const AddressToBrand: { [k: string]: string } = {
-    "0xa508dD875f10C33C52a8abb20E16fc68E981F186": "Audi",
-    "0xd4039eB67CBB36429Ad9DD30187B94f6A5122215": "Fiat",
-    "0xd5cC383881D6d9A7dc1891A0235E11D03Cb992d3": "ACI Udine",
-    "0xa1D9cBa049eAfF292F654e416773470Ad939d6Ae": "Autofficina Mario",
+    "0xa508dd875f10c33c52a8abb20e16fc68e981f186": "Audi",
+    "0xd4039eb67cbb36429ad9dd30187b94f6a5122215": "Fiat",
+    "0x7633fe8542c2218b5a25777477f63d395aa5afb4": "ACI Udine",
+    "0xd5cc383881d6d9a7dc1891a0235e11d03cb992d3": "Autofficina Mario",
 };

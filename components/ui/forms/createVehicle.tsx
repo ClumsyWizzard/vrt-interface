@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import React, { ChangeEvent } from "react";
-import { Label, Select } from "flowbite-react";
+import { Select } from "flowbite-react";
 import { VehicleMetaClean } from "@_types/nft";
 
 type PageProps = {
@@ -140,7 +140,7 @@ const CreateVehicleForm: NextPage<PageProps> = ({ handlePropertiesChange, handle
                 </div>
                 <div>
                     <label htmlFor="name" className="block text-base font-medium text-gray-700 mb-1">
-                        Numero di posti
+                        Numero di posti a sedere
                     </label>
                     <div className="mt-1 flex rounded-md shadow-sm">
                         <input
