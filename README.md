@@ -6,7 +6,7 @@ An interface for Vehicle Registration Token Project, a protocol for trace vehicl
 
 -   [Docker](https://www.docker.com/get-started/)
 -   [NodeJS](https://nodejs.org/it/)
--   Before starting interface you need to run [Vehicle Registration Token (VRT) - Core](https://github.com/1M4nt0/tesi-uniud-2022-core).
+-   Before starting interface you need to run [Vehicle Registration Token (VRT) - Core](https://github.com/1M4nt0/vrt-core).
 
 ## Starting interface
 
