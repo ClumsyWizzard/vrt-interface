@@ -126,7 +126,9 @@ const Profile: NextPage = () => {
                                                         </p>
                                                     </div>
                                                     <div className="mt-3 mb-3 text-lg text-gray-500">
-                                                        <p className="inline-block font-medium text-gray-700">Porte:</p>{" "}
+                                                        <p className="inline-block font-medium text-gray-700">
+                                                            Posti a sedere:
+                                                        </p>{" "}
                                                         <p className="inline-block">
                                                             {activeNft.metadata.properties.seats}
                                                         </p>

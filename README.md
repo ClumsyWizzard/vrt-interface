@@ -6,16 +6,16 @@ An interface for Vehicle Registration Token Project, a protocol for trace vehicl
 
 -   [Docker](https://www.docker.com/get-started/)
 -   [NodeJS](https://nodejs.org/it/)
--   Before starting interface you need to run [Vehicle Registration Token (VRT) - Core](https://github.com/1M4nt0/tesi-uniud-2022-core).
+-   Before starting interface you need to run [Vehicle Registration Token (VRT) - Core](https://github.com/1M4nt0/vrt-core).
 
 ## Starting interface
 
 ### Clone repository
 
 ```
-git clone https://github.com/1M4nt0/tesi-uniud-2022-interface
+git clone https://github.com/1M4nt0/vrt-interface
 
-cd tesi-uniud-2022-interface
+cd vrt-interface
 
 npm install
 ```
@@ -23,7 +23,7 @@ npm install
 ### Start docker container
 
 ```
-cd tesi-uniud-2022-interface/docker
+cd vrt-interface/docker
 
 docker compose up
 ```
