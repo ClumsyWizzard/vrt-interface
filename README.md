@@ -13,9 +13,9 @@ An interface for Vehicle Registration Token Project, a protocol for trace vehicl
 ### Clone repository
 
 ```
-git clone https://github.com/1M4nt0/tesi-uniud-2022-interface
+git clone https://github.com/1M4nt0/vrt-interface
 
-cd tesi-uniud-2022-interface
+cd vrt-interface
 
 npm install
 ```
@@ -23,7 +23,7 @@ npm install
 ### Start docker container
 
 ```
-cd tesi-uniud-2022-interface/docker
+cd vrt-interface/docker
 
 docker compose up
 ```
