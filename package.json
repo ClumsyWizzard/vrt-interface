@@ -1,6 +1,6 @@
 {
     "name": "vrt-interface",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Interface for Vehicle Registration Token Project, a protocol for trace vehicle's property and their history in Ethereum blockchain.",
     "author": {
         "name": "Andrea Antonutti",

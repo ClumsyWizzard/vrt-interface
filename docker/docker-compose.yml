@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   app:
-    image: im4nt0/vrt-interface
+    image: im4nt0/vrt-interface:latest
     container_name: vrt-interface
     restart: always
     extra_hosts:
