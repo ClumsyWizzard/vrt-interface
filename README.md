@@ -23,7 +23,7 @@ npm install
 ### Start docker container
 
 ```
-cd vrt-interface/docker
+cd docker
 
-docker compose up
+docker compose up -d
 ```
