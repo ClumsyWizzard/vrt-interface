@@ -20,7 +20,7 @@ const CreateCertificationForm: NextPage<PageProps> = ({
         <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
             <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                    ID Veicolo
+                    Vehicle ID
                 </label>
                 <div className="mt-1 flex rounded-md shadow-sm">
                     <input
@@ -34,21 +34,19 @@ const CreateCertificationForm: NextPage<PageProps> = ({
             </div>
             <div id="select">
                 <div className="block">
-                    <Label htmlFor="countries" value="Tipologia della certificazione" />
+                    <Label htmlFor="countries" value="Type of certification" />
                 </div>
                 <Select required name="certificationCode" onChange={handleCertificationMetaChange}>
-                    <option value="1">Immatricolazione</option>
-                    <option value="2">Incidente</option>
-                    <option value="3">Lavori/Riparazioni</option>
-                    <option value="4">Pagamento del bollo</option>
-                    <option value="5">Collaudo</option>
-                    <option value="6">Revisione</option>
+                    <option value="1">Revision</option>
+                    <option value="2">Accident</option>
+                    <option value="3">Works/Repairs</option>
+                   
                 </Select>
             </div>
             {certificationMeta.certificationCode == "1" ? (
                 <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                        Numero di Immatricolazione
+                        Registration number
                     </label>
                     <div className="mt-1 flex rounded-md shadow-sm">
                         <input
@@ -75,7 +73,7 @@ const CreateCertificationForm: NextPage<PageProps> = ({
                     type="button"
                     className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-sunray hover:bg-sunray focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sunray"
                 >
-                    Crea certificazione
+                    Create certification
                 </button>
             </div>
         </div>

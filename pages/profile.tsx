@@ -35,9 +35,9 @@ const Profile: NextPage = () => {
                         <main className="flex-1 overflow-y-auto">
                             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                                 <div>
-                                    <h1 className="text-4xl font-bold text-gray-900">I tuoi veicoli</h1>
+                                    <h1 className="text-4xl font-bold text-gray-900">Your vehicles</h1>
                                     <p className="pt-3 text-xl font-light">
-                                        In questa pagina puoi visionare tutti i veicoli in tuo possesso.
+                                        On this page you can view all the vehicles in your possession.
                                     </p>
                                 </div>
                                 <div className="mt-12 pb-16">
@@ -90,10 +90,10 @@ const Profile: NextPage = () => {
                                                     />
                                                 </div>
                                                 <div className="ml-3">
-                                                    <h3 className="text-lg font-medium text-gray-800">Attenzione</h3>
+                                                    <h3 className="text-lg font-medium text-gray-800">Attention</h3>
                                                     <div className="mt-1 text-normal text-gray-700">
                                                         <p>
-                                                            Non possiedi nessun veicolo al momento. Acquistane uno nel
+                                                            You don't own any vehicles at the moment. Buy one in
                                                             marketplace.
                                                         </p>
                                                     </div>
@@ -119,7 +119,7 @@ const Profile: NextPage = () => {
                                                 <div className="mt-6">
                                                     <div className="text-lg text-gray-500">
                                                         <p className="inline-block font-medium text-gray-700">
-                                                            Colore:
+                                                            Color:
                                                         </p>{" "}
                                                         <p className="inline-block">
                                                             {activeNft.metadata.properties.color}
@@ -127,7 +127,7 @@ const Profile: NextPage = () => {
                                                     </div>
                                                     <div className="mt-3 mb-3 text-lg text-gray-500">
                                                         <p className="inline-block font-medium text-gray-700">
-                                                            Posti a sedere:
+                                                            Seats:
                                                         </p>{" "}
                                                         <p className="inline-block">
                                                             {activeNft.metadata.properties.seats}
@@ -135,7 +135,7 @@ const Profile: NextPage = () => {
                                                     </div>
                                                     <div className="mt-3 mb-3 text-lg text-gray-500">
                                                         <p className="inline-block font-medium text-gray-700">
-                                                            Motore:
+                                                            Motor:
                                                         </p>{" "}
                                                         <p className="inline-block">
                                                             {`${activeNft.metadata.properties.engine_displacement}cc da ${activeNft.metadata.properties.engine_power} KW`}
@@ -143,7 +143,7 @@ const Profile: NextPage = () => {
                                                     </div>
                                                     <div className="mt-3 mb-3 text-lg text-gray-500">
                                                         <p className="inline-block font-medium text-gray-700">
-                                                            Carburante:
+                                                            Fuel:
                                                         </p>{" "}
                                                         <p className="inline-block">
                                                             {activeNft.metadata.properties.engine_fuel}
@@ -159,7 +159,7 @@ const Profile: NextPage = () => {
                                             }}
                                             className="disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none disabled:cursor-not-allowed inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700"
                                         >
-                                            Visualizza i dati completi
+                                            View full data
                                         </button>
                                     </div>
                                     <hr />
@@ -168,11 +168,11 @@ const Profile: NextPage = () => {
                                             <div>
                                                 <div className="mb-6">
                                                     <legend className="contents text-lg font-medium text-gray-900">
-                                                        Il veicolo è in vendita
+                                                        The vehicle is for sale
                                                     </legend>
                                                     <p className="text-base text-gray-500">
-                                                        Se vuoi ritirarlo dal marketplace premi il pulsante qui in
-                                                        basso.
+                                                        If you want to collect it from the marketplace, press the button here
+                                                        Bass.
                                                     </p>
                                                 </div>
                                                 <button
@@ -182,7 +182,7 @@ const Profile: NextPage = () => {
                                                     type="button"
                                                     className="disabled:text-gray-400 disabled:cursor-not-allowed flex-1 bg-fire-100 py-2 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:bg-fire-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-fire-100"
                                                 >
-                                                    Rimuovi dalla vendita
+                                                    Remove from sale
                                                 </button>
                                             </div>
                                         ) : (
@@ -190,17 +190,17 @@ const Profile: NextPage = () => {
                                                 <div className="mb-5 bg-white">
                                                     <div className="mb-6">
                                                         <legend className="contents text-lg font-medium text-gray-900">
-                                                            Metti in vendita il tuo veicolo
+                                                            Put your vehicle up for sale
                                                         </legend>
                                                         <p className="text-base text-gray-500">
-                                                            Il tuo veicolo verrà aggiunto al marketplace per poter
-                                                            essere acquistato.
+                                                            Your vehicle will be added to the marketplace in order to
+                                                            be purchased.
                                                         </p>
                                                     </div>
                                                     <div className="mb-6 grid grid-cols-6 gap-6">
                                                         <div className="col-span-6">
                                                             <label className="block text-base font-medium text-gray-700">
-                                                                Prezzo di vendita
+                                                                Selling price
                                                             </label>
                                                             <div className="mt-1 flex rounded-md shadow-sm">
                                                                 <input
@@ -213,7 +213,7 @@ const Profile: NextPage = () => {
                                                                     className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-l-md sm:text-sm border-gray-300"
                                                                 />
                                                                 <span className="inline-flex items-center px-3 rounded-r-md border border-l-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
-                                                                    Euro (€)
+                                                                    Rupee (₹)
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -226,7 +226,7 @@ const Profile: NextPage = () => {
                                                     type="button"
                                                     className="disabled:text-gray-400 disabled:cursor-not-allowed flex-1 bg-sunray py-2 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:bg-sunray focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sunray"
                                                 >
-                                                    Metti in vendita
+                                                    Put up for sale
                                                 </button>
                                             </form>
                                         )}

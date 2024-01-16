@@ -16,12 +16,12 @@ const Home: NextPage = () => {
                                 <ExclamationIcon className="h-8 w-8 text-yellow-400" aria-hidden="true" />
                             </div>
                             <div className="ml-3">
-                                <h3 className="text-lg font-medium text-yellow-800">Attenzione</h3>
+                                <h3 className="text-lg font-medium text-yellow-800">Attention</h3>
                                 <div className="mt-1 text-normal text-yellow-700">
                                     <p>
                                         {network.isLoading
-                                            ? "Caricamento..."
-                                            : `Sembra che tu sia connesso alla rete sbagliata. Controlla di aver configurato correttamente Metamask e connetti alla rete ${network.targetNetwork}.`}
+                                            ? "Loading..."
+                                            : `It appears you are connected to the wrong network. Check that you have configured Metamask correctly and connect to the network ${network.targetNetwork}.`}
                                     </p>
                                 </div>
                             </div>
@@ -33,11 +33,10 @@ const Home: NextPage = () => {
                 <div className="relative">
                     <div className="text-center">
                         <h2 className="text-4xl tracking-tight font-extrabold text-gray-800 sm:text-5xl">
-                            Marketplace
+                            Vehicle go vroom vroom
                         </h2>
                         <p className="pt-3 text-xl font-light">
-                            Acquista la tua auto o la tua moto preferita sfruttando la sicurezza di acquisto della
-                            tecnologia Blockchain
+                            Vehicle Registration over Blockchain
                         </p>
                     </div>
                     <NftList />

@@ -1,11 +1,8 @@
 import { VehicleCertificationDataClean, VehicleMetaClean, VehicleMetadataRaw } from "@_types/nft";
 
 const fuelMapping: { [k: string]: string } = {
-    BENZ: "Benzina",
     GASOL: "Diesel",
-    EL: "Elettrico",
-    GPL: "GPL",
-    H2: "Idrogeno",
+    EL: "Electric",
 };
 
 export const cleanVehicleMeta = (rawVehicleMeta: string): VehicleMetaClean => {

@@ -24,7 +24,7 @@ const Walletbar: FunctionComponent<WalletbarProps> = ({ isInstalled, isLoading, 
                     type="button"
                     className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-sunray hover:bg-sunray focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sunray"
                 >
-                    Loading ...
+                    Loading...
                 </button>
             </div>
         );
@@ -47,7 +47,7 @@ const Walletbar: FunctionComponent<WalletbarProps> = ({ isInstalled, isLoading, 
                                 disabled={true}
                                 className="disabled:text-gray-500 text-sm block px-4 pt-2 text-gray-800"
                             >
-                                Indirizzo wallet{" "}
+                                Wallet address{" "}
                                 {`0x${account[2]}${account[3]}${account[4]}${account[5]}${account[6]}${
                                     account[7]
                                 }....${account.slice(-6)}`}
@@ -64,7 +64,7 @@ const Walletbar: FunctionComponent<WalletbarProps> = ({ isInstalled, isLoading, 
                                         "block px-4 py-2 text-normal text-gray-700 font-normal"
                                     )}
                                 >
-                                    Profilo personale
+                                    Personal profile
                                 </a>
                             </Link>
                         )}
@@ -74,8 +74,9 @@ const Walletbar: FunctionComponent<WalletbarProps> = ({ isInstalled, isLoading, 
         );
     }
 
-    if (isInstalled) {
+    if (window.ethereum) {
         return (
+            
             <div>
                 <button
                     onClick={() => {
@@ -84,7 +85,7 @@ const Walletbar: FunctionComponent<WalletbarProps> = ({ isInstalled, isLoading, 
                     type="button"
                     className="ml-2 inline-flex items-center px-4 py-1.5 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-sunray hover:bg-sunray focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sunray"
                 >
-                    Connettiti
+                    Connect
                 </button>
             </div>
         );
@@ -92,13 +93,10 @@ const Walletbar: FunctionComponent<WalletbarProps> = ({ isInstalled, isLoading, 
         return (
             <div>
                 <button
-                    onClick={() => {
-                        window.open("https://metamask.io", "_ blank");
-                    }}
                     type="button"
                     className="ml-2 inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-sunray hover:bg-sunray focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sunray"
                 >
-                    Installa Metamask
+                    Wallet Not Detected
                 </button>
             </div>
         );

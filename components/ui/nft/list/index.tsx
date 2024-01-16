@@ -12,9 +12,9 @@ const NftList: FunctionComponent = () => {
                     <ExclamationCircleIcon className="h-8 w-8 text-yellow-400" aria-hidden="true" />
                 </div>
                 <div className="ml-3">
-                    <h3 className="text-lg font-medium text-gray-800">Attenzione</h3>
+                    <h3 className="text-lg font-medium text-gray-800">Attention</h3>
                     <div className="mt-1 text-normal text-gray-700">
-                        <p>Non ci sono veicoli in vendita al momento. Riprova più tardi.</p>
+                        <p>There are no vehicles for sale at the moment. Try later.</p>
                     </div>
                 </div>
             </div>

@@ -127,9 +127,9 @@ const NftCreate: NextPage = () => {
             });
 
             const res = await toast.promise(promise, {
-                pending: "Caricamento del file in corso...",
-                success: "Caricamento completato",
-                error: "Errore nel caricamento",
+                pending: "Loading file in progress...",
+                 success: "Loading completed",
+                 error: "Error loading",
             });
 
             const data = res.data as InfuraRes;
@@ -150,9 +150,9 @@ const NftCreate: NextPage = () => {
             });
 
             const res = await toast.promise(promise, {
-                pending: "Caricamento dei dati in corso...",
-                success: "Dati caricati",
-                error: "Errore nel caricamento dei dati",
+                pending: "Loading data...",
+                 success: "Data loaded",
+                 error: "Error loading data",
             });
 
             const data = res.data as InfuraRes;
@@ -163,9 +163,9 @@ const NftCreate: NextPage = () => {
                 `${process.env.NEXT_PUBLIC_IPFS_GATEWAY_URL}/ipfs/${data.Hash}`
             );
             await toast.promise(tx!.wait(), {
-                pending: "Creazione della certificazione digitale del veicolo in corso...",
-                success: "Certificazione digitale del veicolo creata con successo",
-                error: "Errore nel creazione dei dati",
+                pending: "Creation of digital vehicle certification in progress...",
+                success: "Digital vehicle certification successfully created",
+                error: "Error creating data",
             });
         } catch (e: any) {
             console.error(e.message);
@@ -183,9 +183,9 @@ const NftCreate: NextPage = () => {
             });
 
             const res = await toast.promise(promise, {
-                pending: "Caricamento dei dati in corso...",
-                success: "Dati caricati",
-                error: "Errore nel caricamento dei dati",
+                pending: "Loading data...",
+                success: "Data loaded",
+                error: "Error loading data",
             });
 
             const data = res.data as InfuraRes;
@@ -194,9 +194,9 @@ const NftCreate: NextPage = () => {
                 `${process.env.NEXT_PUBLIC_IPFS_GATEWAY_URL}/ipfs/${data.Hash}`
             );
             await toast.promise(tx!.wait(), {
-                pending: "Creazione dell'identità digitale del veicolo in corso...",
-                success: "Identità digitale del veicolo creata con successo",
-                error: "Errore nella creazione dei dati",
+                pending: "Creating the digital identity of the vehicle in progress...",
+                 success: "Digital vehicle identity successfully created",
+                 error: "Error creating data",  
             });
         } catch (e: any) {
             console.error(e.message);
@@ -216,8 +216,8 @@ const NftCreate: NextPage = () => {
                             <div className="mt-1 text-normal text-yellow-700">
                                 <p>
                                     {network.isLoading
-                                        ? "Caricamento..."
-                                        : `Sembra che tu sia connesso alla rete sbagliata. Controlla di aver configurato correttamente Metamask e connetti alla rete ${network.targetNetwork}.`}
+                                        ? "Loading..."
+                                        : `It appears you are connected to the wrong network. Check that you have configured Metamask correctly and connect to the network ${network.targetNetwork}.`}
                                 </p>
                             </div>
                         </div>
@@ -234,11 +234,11 @@ const NftCreate: NextPage = () => {
                     <div className="md:col-span-1">
                         <div className="px-4 sm:px-0">
                             <h3 className="text-xl font-medium leading-6 text-gray-900">
-                                Crea un nuovo veicolo o una nuova certificazione
+                            Create a new vehicle or certification
                             </h3>
                             <p className="mt-1 text-base text-gray-600">
-                                Verifica con attenzione i dati prima di approvarli, dopo averli resi pubblici non potrai
-                                più modificarli
+                            Check the data carefully before approving them, once you have made them public you will not be able to
+                                 modify them
                             </p>
                         </div>
                     </div>
@@ -248,12 +248,12 @@ const NftCreate: NextPage = () => {
                                 <div id="select" className="px-4 sm:px-6 bg-white space-y-2 p-6">
                                     <div className="block">
                                         <label htmlFor="name" className="block text-base font-medium text-gray-700">
-                                            Vuoi creare un veicolo o una certificazione?
+                                        You want to create a vehicle or certification?
                                         </label>
                                     </div>
                                     <Select id="countries" required onChange={(e) => setFormType(e.target.value)}>
-                                        <option value="type-1">Veicolo</option>
-                                        <option value="type-2">Certificazione</option>
+                                        <option value="type-1">Vehicle</option>
+                                        <option value="type-2">Certification</option>
                                     </Select>
                                 </div>
                                 <hr className="block text-sm font-medium text-gray-700" />

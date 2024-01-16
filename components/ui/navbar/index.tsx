@@ -8,7 +8,7 @@ import Walletbar from "./Walletbar";
 
 const navigation = [
     { name: "Marketplace", href: "/", current: true },
-    { name: "Crea", href: "/vehicle/create", current: false },
+    { name: "Create", href: "/vehicle/create", current: false },
 ];
 
 function classNames(...classes: string[]) {
@@ -66,7 +66,7 @@ export default function Navbar() {
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                                 <div className="text-gray-300 self-center mr-2">
                                     <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-gray-50 text-gray-900">
-                                        {network.isLoading || network.data != "Ganache" ? (
+                                        {network.isLoading && network.data != "Ganache" ? (
                                             <svg
                                                 className="-ml-0.5 mr-1.5 h-3 w-3 text-fire-100"
                                                 fill="currentColor"
